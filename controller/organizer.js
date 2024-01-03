@@ -127,7 +127,11 @@ exports.getLogout = (req,res,next) => {
         error.statusCode = 401;
         return next(error);
     }
-    res.clearCookie('jwtToken');
+    res.clearCookie('jwtToken',{
+        sameSite:'none',
+        httpOnly:true,
+        secure:true
+    });
     res.status(200).json({
         message: 'Logged out'
     })
