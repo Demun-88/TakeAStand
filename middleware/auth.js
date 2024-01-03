@@ -1,12 +1,12 @@
 const jwt = require('jsonwebtoken');
 
 exports.authenticate = (req,res,next) => {
-    const authToken = req.get('Authorization');
+    const authToken = req.get('cookie');
     if(!authToken) {
         req.isAuth = false;
         next();
     }
-    const token = req.get('Authorization').split(' ')[1];
+    const token = req.cookies.jwtToken;
     if(!token) {
         req.isAuth = false;
         next();
