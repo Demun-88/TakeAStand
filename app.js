@@ -20,11 +20,6 @@ app.use((req,res,next) => {
     res.setHeader("Access-Control-Allow-Methods", 'GET,POST,PUT,DELETE,PATCH,OPTIONS');
     res.setHeader("Access-Control-Allow-Headers", 'Content-Type,Origin,X-Requested-With,Content-Length,cookie');
     res.setHeader("Access-Control-Allow-Credentials", 'true');
-=======
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', '*');
->>>>>>> dfca3b8810cec0bea67e234f1b686966e1486831
     next();
 })
 
