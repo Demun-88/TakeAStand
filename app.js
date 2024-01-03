@@ -15,10 +15,16 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 
 app.use((req,res,next) => {
+<<<<<<< HEAD
     res.setHeader("Access-Control-Allow-Origin", 'http://localhost:3000');
     res.setHeader("Access-Control-Allow-Methods", 'GET,POST,PUT,DELETE,PATCH,OPTIONS');
     res.setHeader("Access-Control-Allow-Headers", 'Content-Type,Origin,X-Requested-With,Content-Length,cookie');
     res.setHeader("Access-control-Allow-Credentials", 'true');
+=======
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', '*');
+>>>>>>> dfca3b8810cec0bea67e234f1b686966e1486831
     next();
 })
 
@@ -45,7 +51,7 @@ app.use((error,req,res,next) => {
 
 mongoose.connect(process.env.MONGO_URL)
 .then(() => {
-    app.listen(process.env.PORT || 8000,() => {console.log("Server is running")});
+    app.listen(process.env.PORT,() => {console.log("Server is running")});
 })
 .catch(err => {
     console.log(err);
