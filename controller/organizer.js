@@ -51,10 +51,10 @@ exports.postSignup = (req,res,next) => {
             expiresIn: '1h'
         })
         res.cookie('jwtToken', token,{
-            expiresIn:new Date(Date.now()+2*3600000),
+            expire:new Date(Date.now()+2*3600000),
             httpOnly: true,
             secure: true,
-            sameSite: 'strict'
+            sameSite: 'none'
         });
         res.status(200).json({
             token,
@@ -100,10 +100,10 @@ exports.postLogin = (req,res,next) => {
         })
         
         res.cookie('jwtToken', token,{
-            expiresIn:new Date(Date.now()+2*3600000),
+            expire:new Date(Date.now()+2*3600000),
             httpOnly: true,
             secure: true,
-            sameSite: 'strict'
+            sameSite: 'none'
         });
         res.status(200).json({
             token,
