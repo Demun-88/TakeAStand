@@ -54,7 +54,7 @@ exports.postSignup = (req,res,next) => {
             expiresIn:new Date(Date.now()+2*3600000),
             httpOnly: true,
             secure: true,
-            sameSite: 'none'
+            sameSite: 'strict'
         });
         res.status(200).json({
             token,
@@ -103,7 +103,7 @@ exports.postLogin = (req,res,next) => {
             expiresIn:new Date(Date.now()+2*3600000),
             httpOnly: true,
             secure: true,
-            sameSite: 'none'
+            sameSite: 'strict'
         });
         res.status(200).json({
             token,
